@@ -151,12 +151,12 @@
       <div class="form-group">
         <label for="slo">SLO</label>
         <input name="slo" type="text" value="99.9%">
-        <small>What percentage of events need to be "good" events?</small>
+        <small>Процент "хороших" событий?</small>
       </div>
       <div class="form-group">
-        <label for="slo-interval">SLO lookback interval</label>
+        <label for="slo-interval">Окно SLO</label>
         <input name="slo-interval" type="text" value="30d">
-        <small>Over what interval will the SLO be tracked?</small>
+        <small>В течение какого интервала будет отслеживаться SLO?</small>
       </div>
       <div class="form-group">
         <label for="exhaustion-interval">Время до оповещения о полном исчерпании бюджета ошибок</label>
@@ -172,11 +172,11 @@
 
     <table class="results">
       <tr>
-        <th scope="col">error rate</th>
-        <th scope="col">time to alert</th>
+        <th scope="col">частота ошибок</th>
+        <th scope="col">время до оповещения</th>
         <th scope="col">
-          budget burned
-          <small>(at alert, or after <span class="slo-interval">the SLO interval</span> if no alert fires)</small>
+          израсходованно бюджета
+          <small>(на момент оповещения, или, если оно не потребовалось, после <span class="slo-interval">Окна SLO</span>)</small>
         </th>
       </tr>
       <tr>
@@ -233,34 +233,32 @@
   </div>
 
   <div class="description">
-    <h1>SLO burn rate alert calculator</h1>
-    <h2>What is this?</h2>
+    <h1>
+      Калькулятор времени оповещения о расходе бюджета ошибок SLO</h1>
+    <h2>Что это?</h2>
     <p>
-      This is a little simulator to help you build intuition about SLO burn rate
-      alerting. You can learn more about the theory behind burn rate alerting in
-      the
-      <a href="https://sre.google/workbook/alerting-on-slos/#4-alert-on-burn-rate">
-        SLO Workbook section on Burn Rate</a>.
+      Это небольшой симулятор, который поможет вам сформировать интуицию об оповещении 
+      о скорости расхода бюджета ошибок SLO. Вы можете узнать больше о теории, 
+      лежащей в основе оповещения о скорости расхода бюджета ошибок в
+      <a href="https://sre.google/workbook/alerting-on-slos/#4-alert-on-burn-rate">SLO Workbook раздел Burn Rate</a>.
     </p>
-    <h2>How do I use it?</h2>
+    <h2>Как этим пользоваться?</h2>
     <p>
-      Change the values in the form and see how the "time to alert" changes for
-      different observed error rates in the table. For example, if you set the
-      SLO to <code>99.95%</code> over a <code>14d</code> interval, and you
-      configure the burn alert exhaustion interval to be <code>6h</code>, you
-      should find that:
+      Измените значения в форме и посмотрите, как изменяется "время до оповещения" при разной доле ошибок в таблице. 
+      Например, если вы установите SLO на 99.95% интервал 14d и настроите "Время до оповещения о полном 
+      исчерпании бюджета ошибок" 6h, вы увидите, что:
     </p>
     <ul>
-      <li>You'll be alerted to total failure in about <code>2m 32s</code>.</li>
-      <li>You'll be alerted to a 10% failure rate after a bit more than <code>25m</code>.</li>
       <li>
-        A failure rate of <code>1%</code> will burn down your budget, and after
-        about <code>11h</code> you will be less than 6h away from exhausting
-        your budget, and you'll be alerted.
+        Вы будете уведомлены о полном исчерпании примерно через 2м 32с.</li>
+      <li>
+        Вы будете предупреждены при доле ошибок 10% чуть более чем через 25m.</li>
+      <li>
+         Доля ошибок 1% исчерпает ваш бюджет, и примерно через 11 часов вы 
+        будете уже менее чем в 6 часах от исчерпания своего бюджета, и вы будете оповещены.
       </li>
       <li>
-        A failure rate of <code>0.01%</code> is well below your SLO error rate of
-        <code>0.05%</code> so you'll never be alerted.
+        Доля ошибок 0.01% значительно ниже доли ошибок вашего SLO 0.05%, поэтому вы никогда не получите оповещения.
       </li>
     </ul>
     <h2>
@@ -431,7 +429,7 @@
     function renderDuration(seconds) {
       seconds = Math.ceil(seconds);
       if (isNaN(seconds)) {
-        return "never";
+        return "никогда";
       }
       const out = [];
       for (const [c, n] of DURATIONS) {
