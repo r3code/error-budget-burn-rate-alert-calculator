@@ -159,14 +159,14 @@
         <small>Over what interval will the SLO be tracked?</small>
       </div>
       <div class="form-group">
-        <label for="exhaustion-interval">Burn alert exhaustion interval</label>
+        <label for="exhaustion-interval">Время до оповещения о полном исчерпании бюджета ошибок</label>
         <input name="exhaustion-interval" type="text" value="1d">
-        <small>How long before budget exhaustion should you be alerted?</small>
+        <small>За какое время до исчерпания бюджета вас следует предупредить?</small>
       </div>
       <div class="form-group">
-        <label for="error-interval">Error interval</label>
+        <label for="error-interval">Как долго были ошибки</label>
         <input name="error-interval" type="text" value="">
-        <small>For how long are errors seen? (Leave blank for "continuously")</small>
+        <small>Как долго наблюдаются ошибки? (оставьте пустым, если "не прекращаются")</small>
       </div>
     </form>
 
@@ -282,27 +282,28 @@
       you've consumed 25% of your error budget. Smaller burn rates will alert
       later, after burning down more of your budget.
     </p>
-    <h2>Can it show me how long it would take to burn down my error budget completely?</h2>
+    <h2>Может ли он показать мне, сколько времени потребуется, чтобы полностью израсходовать мой бюджет ошибок??</h2>
     <p>
-      Yes! Put <code>0</code> (zero) in the exhaustion interval box.
+      Да! Укажите <code>0</code> (ноль) как Время до оповещения о полном исчерпании бюджета ошибок.
     </p>
-    <h2>This is totally unrealistic!</h2>
+    <h2>
+      Это совершенно нереально!</h2>
     <p>
-      It absolutely is. It makes several simplifying assumptions that are pretty
-      unlikely to be true in real life. It assumes that the rate of SLI events
-      is constant, and it assumes that any introduced error rates are constant.
-      Ironically, it's when these assumptions are violated that burn rate
-      alerting can be most useful.
+      Это абсолютно так. Он делает несколько упрощающих предположений, которые вряд ли будут верны в реальной жизни. 
+      Предполагается, что частота событий SLI постоянна, и предполагается, что любые возникающие ошибки постоянны. 
+      По иронии судьбы, именно когда эти предположения нарушаются, оповещения о скорости расхода могут быть наиболее полезными.
     </p>
     <p>
-      If you'd like to help extend the calculator to simulate more interesting
-      scenarios such as changing error rates, please <a
-     href="https://github.com/nickstenning/burnrate">contribute on GitHub!</a>
+      Если вы хотите помочь расширить калькулятор для моделирования более интересных сценариев, 
+      таких как изменение частоты ошибок, пожалуйста, <a
+     href="https://github.com/nickstenning/burnrate">присоединяйтесь на GitHub!</a>
     </p>
-    <h2>Who made this?</h2>
+    <h2>Автор</h2>
     <p>
-      <a href="https://twitter.com/nickstenning">Nick Stenning</a> did. If you
-      found it helpful, please say hi on Twitter!
+      <a href="https://twitter.com/nickstenning">Nick Stenning</a>. Пишите в X.
+    </p>
+    <p>
+      Переведно <a href="https://github.com/r3code/">r3code</a>
     </p>
   </div>
 
