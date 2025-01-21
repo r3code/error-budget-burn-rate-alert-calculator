@@ -263,24 +263,22 @@
         <code>0.05%</code> so you'll never be alerted.
       </li>
     </ul>
-    <h2>Why have I burned 25% of my budget by the time the alert fires?</h2>
+    <h2>
+      Почему к моменту срабатывания оповещения я израсходовал 25% своего бюджета?</h2>
     <p>
-      This calculator attempts to emulate the way that <a href="https://www.honeycomb.io/">
-      Honeycomb</a> implements burn alerts. You can read more about
-      <a href="https://docs.honeycomb.io/working-with-your-data/slos/slo-process/#define-burn-alerts">
-      Honeycomb Burn Alerts in their docs</a>.
+      Этот калькулятор пытается эмулировать способ, которым Honeycomb реализует оповещения о сгорании. 
+      Вы можете прочитать больше о <a href="https://docs.honeycomb.io/working-with-your-data/slos/slo-process/#define-burn-alerts">Honeycomb Burn Alerts в их документах</a>.
     </p>
     <p>
-      In Honeycomb, you don't configure burn rate and lookback interval
-      independently. You specify an error budget exhaustion interval which
-      defines the sensitivity of the alert, and &frac14; of that exhaustion
-      interval is used as the alert lookback interval.
+      В Honeycomb вы не настраиваете скорость сгорания и интервал обратного просмотра независимо. 
+      Вы указываете интервал исчерпания бюджета ошибок, который определяет чувствительность оповещения, 
+      и ¼ этого интервала исчерпания используется как интервал обратного просмотра для оповещения.
     </p>
     <p>
-      That means that for high burn rates (when you would otherwise burn all of
-      your budget within the alert exhaustion window) an alert will fire once
-      you've consumed 25% of your error budget. Smaller burn rates will alert
-      later, after burning down more of your budget.
+      Это означает, что для высоких показателей расхода (когда вы в противном случае израсходовали бы 
+      весь свой бюджет в течение окна оповещения об исчерпании) оповещение сработает, как только вы 
+      израсходуете 25% своего бюджета ошибок. Более низкие показатели сжигания сработают позже, 
+      после сжигания большей части вашего бюджета.
     </p>
     <h2>Может ли он показать мне, сколько времени потребуется, чтобы полностью израсходовать мой бюджет ошибок??</h2>
     <p>
